@@ -31,7 +31,7 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 <>
-                    <Link to='/signin'><button className='mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign In</button></Link>
+                    <Link to='/login'><button className='mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
                     <Link to='/signup'><button className='mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
                 </>
             </div>
