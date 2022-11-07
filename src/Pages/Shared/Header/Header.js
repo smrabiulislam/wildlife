@@ -7,6 +7,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/contact'>Contact</Link></li>
     </>
     return (
         <div className="navbar bg-base-100 h-20 mb-12">
@@ -31,8 +32,8 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 <>
-                    <Link to='/login'><button className='mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
-                    <Link to='/signup'><button className='mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
+                    <Link to='/login'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
+                    <Link to='/signup'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
                 </>
             </div>
         </div>
