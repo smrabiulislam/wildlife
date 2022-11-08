@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import img10 from '../../assets/images/img10.png'
 
 const Contact = () => {

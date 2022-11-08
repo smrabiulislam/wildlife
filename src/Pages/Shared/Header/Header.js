@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 import logo from '../../../assets/logo/logo.png'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const userLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('userLogOut');
+            })
+    }
+
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
@@ -31,10 +42,39 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <>
-                    <Link to='/login'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
-                    <Link to='/signup'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
-                </>
+                {
+                    user?.uid ? <Link onClick={userLogOut}
+
+                        className=" mx-2 bg-indigo-600 hover:bg-violet-600 py-2 px-4 text-white rounded-md"
+                    >
+                        Logout
+                    </Link> :
+
+                        <>
+                            <Link to='/login'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
+                            <Link to='/signup'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
+                        </>
+
+                }
+            </div>
+            <div className="gap-2">
+                {user?.uid && (
+                    <div>
+                        {user?.photoURL ? (
+                            <img
+                                className="w-12 h-10 text-white rounded-3xl"
+                                alt="user icon"
+                                title={user?.displayName}
+                                src={user.photoURL}
+                            />
+                        ) : (
+                            <FaUser>
+                                title={user?.displayName}
+                                className="w-10 h-9 text-white rounded-md"
+                            </FaUser>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );
