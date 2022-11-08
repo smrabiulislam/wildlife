@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../Layout/Main';
 import Blog from '../../Pages/Blog/Blog';
 import Contact from '../../Pages/Contact/Contact';
+import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Services from '../../Pages/Services/Services';
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             },
             // {
             //     path: '/checkout/:id',
