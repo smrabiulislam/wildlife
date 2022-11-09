@@ -8,6 +8,8 @@ import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Home from '../../Pages/Home/Home/Home';
 import Service from '../../Pages/Home/Service/Service';
 import Login from '../../Pages/Login/Login';
+import MyReviews from '../../Pages/Reviews/MyReviews/MyReviews';
+import AddService from '../../Pages/Services/AddService';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
 
@@ -51,15 +53,19 @@ const router = createBrowserRouter([
                 element: <Service></Service>
             },
             {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
+            },
+            {
                 path: '/checkout',
                 element: <Checkout></Checkout>,
                 // loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
 
-            // {
-            //     path: '/orders',
-            //     element: <Orders></Orders>
-            // }
         ]
 
     }
