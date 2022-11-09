@@ -2,9 +2,11 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../Layout/Main';
 import Blog from '../../Pages/Blog/Blog';
+import Checkout from '../../Pages/Checkout/Checkout';
 import Contact from '../../Pages/Contact/Contact';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Home from '../../Pages/Home/Home/Home';
+import Service from '../../Pages/Home/Service/Service';
 import Login from '../../Pages/Login/Login';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
@@ -43,11 +45,17 @@ const router = createBrowserRouter([
                 path: '*',
                 element: <ErrorPage></ErrorPage>
             },
-            // {
-            //     path: '/checkout/:id',
-            //     element: <Checkout></Checkout>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
-            // },
+            {
+                path: '/services/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                element: <Service></Service>
+            },
+            {
+                path: '/checkout',
+                element: <Checkout></Checkout>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+
             // {
             //     path: '/orders',
             //     element: <Orders></Orders>

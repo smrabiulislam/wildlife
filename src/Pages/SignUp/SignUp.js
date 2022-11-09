@@ -74,7 +74,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className="card mx-auto my-4 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+        <div className="card mx-auto my-4 flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100 py-20">
             <h1 className="text-5xl text-center font-bold">Sign Up</h1>
             <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">

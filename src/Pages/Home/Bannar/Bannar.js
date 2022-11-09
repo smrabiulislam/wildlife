@@ -13,19 +13,19 @@ const Bannar = () => {
                     <img src={img7} className="w-full rounded-lg " />
                 </div>
                 <div className=" mt-16 absolute flex justify-end transform -translate-y-1/2 left-24  top-1/4 ">
-                    <h1 className='text-6xl  font-bold text-white text-left'>
+                    <h1 className='md:text-6xl  font-bold text-white text-left'>
                         Welcome to our <br />
                         Wildlife <br />
                         Photography<br />
                     </h1>
                 </div>
                 <div className="  absolute flex justify-end transform -translate-y-1/2 left-24  top-2/4 ">
-                    <p className=' text-left text-xl  text-white'>
+                    <p className='sm:mt-10 sm:text-left text-left text-xl  text-white'>
                         Photography is a profession that exposes <br />
                         you to the real world.
                     </p>
                 </div>
-                <div className=" -mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
+                <div className=" md:-mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
                     <Link to="/signup">
                         <button className="btn btn-warning mr-2">Get Started</button>
                     </Link>
@@ -40,19 +40,19 @@ const Bannar = () => {
                     <img src={img6} className="w-full rounded-lg " />
                 </div>
                 <div className=" mt-16 absolute flex justify-end transform -translate-y-1/2 left-24  top-1/4 ">
-                    <h1 className='text-6xl font-bold text-white text-left'>
+                    <h1 className='md:text-6xl font-bold text-white text-left'>
                         Welcome to our <br />
                         Wildlife <br />
                         Photography<br />
                     </h1>
                 </div>
                 <div className="  absolute flex justify-end transform -translate-y-1/2 left-24  top-2/4 ">
-                    <p className='  text-xl  text-white'>
+                    <p className='sm:mt-10 sm:text-left  text-xl  text-white'>
                         Photography is a profession that exposes <br />
                         you to the real world.
                     </p>
                 </div>
-                <div className=" -mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
+                <div className=" md:-mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
                     <Link to="/signup">
                         <button className="btn btn-warning mr-2">Get Started</button>
                     </Link>
@@ -68,19 +68,19 @@ const Bannar = () => {
                     <img src={img3} className="w-full rounded-lg " />
                 </div>
                 <div className=" mt-16 absolute flex justify-end transform -translate-y-1/2 left-24  top-1/4 ">
-                    <h1 className='text-6xl font-bold text-white text-left'>
+                    <h1 className='md:text-6xl font-bold text-white text-left'>
                         Welcome to our <br />
                         Wildlife <br />
                         Photography<br />
                     </h1>
                 </div>
                 <div className="  absolute flex justify-end transform -translate-y-1/2 left-24  top-2/4 ">
-                    <p className='  text-xl  text-white'>
+                    <p className=' sm:mt-10 sm:text-left  text-xl  text-white'>
                         Photography is a profession that exposes <br />
                         you to the real world.
                     </p>
                 </div>
-                <div className=" -mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
+                <div className=" md:-mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
                     <Link to="/signup">
                         <button className="btn btn-warning mr-2">Get Started</button>
                     </Link>
@@ -95,19 +95,19 @@ const Bannar = () => {
                     <img src={img4} className="w-full rounded-lg " />
                 </div>
                 <div className=" mt-16 absolute flex justify-end transform -translate-y-1/2 left-24  top-1/4 ">
-                    <h1 className='text-6xl font-bold text-white text-left'>
+                    <h1 className='md:text-6xl font-bold text-white text-left'>
                         Welcome to our <br />
                         Wildlife <br />
                         Photography<br />
                     </h1>
                 </div>
                 <div className="  absolute flex justify-end transform -translate-y-1/2 left-24  top-2/4 ">
-                    <p className='  text-xl  text-white'>
+                    <p className='sm:mt-10 sm:text-left  text-xl  text-white'>
                         Photography is a profession that exposes <br />
                         you to the real world.
                     </p>
                 </div>
-                <div className=" -mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
+                <div className=" md:-mt-28 absolute flex justify-end transform -translate-y-1/2 left-24  top-3/4 ">
                     <Link to="/signup">
                         <button className="btn btn-warning mr-2">Get Started</button>
                     </Link>
