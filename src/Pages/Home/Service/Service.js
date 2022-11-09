@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/24/solid';
+import Review from '../../Reviews/Review/Review';
 
 
 const Service = () => {
@@ -26,9 +27,10 @@ const Service = () => {
                             </div>
                             <hr className='my-4 ' />
                             <p className='text-left'>{description}</p>
-
-
                         </div>
+                    </div>
+                    <div>
+                        <Review></Review>
                     </div>
                 </div>
 
@@ -47,7 +49,6 @@ const Service = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
