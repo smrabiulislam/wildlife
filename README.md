@@ -1,3 +1,31 @@
+# Assignment-1
+
+# Website Name:
+[Wildlife]()
+
+# Assignment Repo link:
+[https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-smrabiulislam.git](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-smrabiulislam.git)
+
+# Assignment Server Repo link:
+[https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-smrabiulislam](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-smrabiulislam)
+
+# Live Website Link:
+[]()
+
+# Live server link:
+[]()
+
+# Working Step:
+1. Create a react project
+2. install react-router, tailwind css
+3. create components and work on it
+4. After complete design part then i did setup firebase & mongodb
+5. Connected form to firebase
+6. setup private route for course details 
+8. Setup server site with mongodb
+9. then i upload server site on vercel
+10. then i deploy my file on firebase hosting.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
