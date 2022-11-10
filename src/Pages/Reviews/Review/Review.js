@@ -1,58 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Review = () => {
-    // const [review, setReview] = useState({});
-
-    // const handleAddUser = event => {
-    //     event.preventDefault();
-    //     console.log(review);
-
-
-    //     fetch('http://localhost:5000/reviews', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(review)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.acknowledged) {
-    //                 alert('Comment added successfully');
-    //                 event.target.reset();
-    //             }
-    //             // console.log(data)
-    //         })
-    // }
-
-    // const handleInputBlur = event => {
-    //     const field = event.target.name;
-    //     const value = event.target.value;
-    //     const newUser = { ...review }
-    //     newUser[field] = value;
-    //     setReview(newUser);
-    // }
-
-    // const [reviews, setReviews] = useState([]);
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/reviews')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             const showReview = data.filter(shw => shw.serviceId === review._id)
-
-    //             setReviews(showReview);
-    //         })
-    // }, [review._id])
-    // console.log(review)
 
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
-
     const [reviews, setReviews] = useState([]);
-    //console.log(serviceId);
 
     //review add handler
     const AddReview = (event) => {
@@ -75,7 +29,7 @@ const Review = () => {
             .then((data) => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success("Review Added");
+                    alert('Your comment successfully upload')
                     event.target.reset();
                 }
             })
@@ -97,16 +51,17 @@ const Review = () => {
     console.log(reviews);
 
     return (
-        <div className='text-left ml-4'>
+        <div className='text-left ml-4 '>
 
-            <div className='my-20'>
+            <div className='my-20 rounded-2xl shadow-2xl p-4'>
                 <h1 className='mb-4 text-2xl font-semibold'>Total Reviews: {reviews.length}</h1>
                 {
                     reviews.map(review => <tbody key={review._id}>
 
-                        <tr >
+                        <tr>
                             <td>
-                                <div className="flex items-center space-x-3">
+                                <div className=' -mb-4 ml-8'>{review.review}</div>
+                                <div className=" my-8 flex items-center space-x-3">
                                     <div className="avatar">
                                         <div className="rounded-full w-12 h-12">
                                             <img src={review.userImg} alt="Avatar Tailwind CSS Component" />
@@ -116,10 +71,8 @@ const Review = () => {
                                         <div className="font-bold">{review.name}</div>
                                         <div className="text-sm opacity-50">{review.email}</div>
                                     </div>
+
                                 </div>
-                            </td>
-                            <td>
-                                {review.review}
                             </td>
                         </tr>
                     </tbody>
@@ -135,7 +88,7 @@ const Review = () => {
                         <h1 className="font-bold uppercase text-3xl">Leave a Comment</h1>
                     </div>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                        <input /**onBlur={handleInputBlur} */ name='name' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input name='name' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                             type="text" placeholder="Name*" required />
 
                         <input defaultValue={user?.email} readOnly name='email' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -146,7 +99,7 @@ const Review = () => {
                         <textarea name='comment' placeholder="Review*" className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" required></textarea>
                     </div>
                     <div className="my-2 w-1/2 lg:w-1/4">
-                        <button type='submit' className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
+                        <button type='submit' className="uppercase text-sm font-bold tracking-wide bg-green-700 text-gray-100 p-3 rounded-lg w-full 
                               focus:outline-none focus:shadow-outline">
                             Submit
                         </button>

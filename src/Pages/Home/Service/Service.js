@@ -2,14 +2,14 @@ import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Review from '../../Reviews/Review/Review';
-import ShortDiscription from './ShortDiscription';
+
 
 
 const Service = () => {
-    const { _id, img, price, title, description, facility } = useLoaderData();
+    const { _id, img, price, title, description } = useLoaderData();
     const ref = useRef()
     return (
-        <div className=' '>
+        <div>
             <div className=' md:px-20 py-20 gap-5'>
                 <div className="col-span-3 p-10 rounded-lg shadow-2xl border-2 border-green-700 mx-2">
                     <div ref={ref} className=' my-5'>
@@ -27,15 +27,7 @@ const Service = () => {
                             </div>
                             <hr className='my-4 ' />
                             <p className='text-left'>{description}</p>
-                            <h1 className='mt-2 text-left text-2xl'>Feature</h1>
                             <hr className='my-4 ' />
-                            {
-                                facility?.map(facilitys => <ShortDiscription
-                                    facilitys={facilitys}
-                                ></ShortDiscription>
-                                )
-                            }
-
                         </div>
                     </div>
                     <div>
