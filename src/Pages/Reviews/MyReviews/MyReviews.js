@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import React, { useEffect, useState } from 'react';
+import ReviewCard from './ReviewCard';
 
 const MyReviews = () => {
-    // const { reviews } = useLoaderData();
-    // const { _id, title, img, price, description } = useLoaderData();
-    const { user } = useContext(AuthContext);
+
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
         fetch("http://localhost:5000/reviews")
@@ -15,27 +12,12 @@ const MyReviews = () => {
     console.log(reviews);
 
     return (
-        <div>
+        <div className='my-20 rounded-2xl shadow-2xl p-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
-                reviews.map(review => <tbody key={review._id}>
-                    <tr>
-                        <td>
-                            <div className=' -mb-4 ml-8'>{review.review}</div>
-                            <div className=" my-8 flex items-center space-x-3">
-                                <div className="avatar">
-                                    <div className="rounded-full w-12 h-12">
-                                        <img src={review.userImg} alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="font-bold">{review.name}</div>
-                                    <div className="text-sm opacity-50">{review.email}</div>
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                reviews.map(review => <ReviewCard
+                    key={review._id}
+                    review={review}
+                ></ReviewCard>
 
                 )
             }

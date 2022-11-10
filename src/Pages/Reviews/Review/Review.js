@@ -60,7 +60,7 @@ const Review = () => {
 
                         <tr>
                             <td>
-                                <div className=' -mb-4 ml-8'>{review.review}</div>
+                                <div className=' -mb-4 ml-2'>{review.review}</div>
                                 <div className=" my-8 flex items-center space-x-3">
                                     <div className="avatar">
                                         <div className="rounded-full w-12 h-12">
@@ -68,7 +68,7 @@ const Review = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="font-bold">{review.name}</div>
+                                        <div className="font-bold text-left">{review.name}</div>
                                         <div className="text-sm opacity-50">{review.email}</div>
                                     </div>
 
