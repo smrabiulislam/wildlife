@@ -1,10 +1,133 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Review = () => {
+    // const [review, setReview] = useState({});
+
+    // const handleAddUser = event => {
+    //     event.preventDefault();
+    //     console.log(review);
+
+
+    //     fetch('http://localhost:5000/reviews', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(review)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.acknowledged) {
+    //                 alert('Comment added successfully');
+    //                 event.target.reset();
+    //             }
+    //             // console.log(data)
+    //         })
+    // }
+
+    // const handleInputBlur = event => {
+    //     const field = event.target.name;
+    //     const value = event.target.value;
+    //     const newUser = { ...review }
+    //     newUser[field] = value;
+    //     setReview(newUser);
+    // }
+
+    // const [reviews, setReviews] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/reviews')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             const showReview = data.filter(shw => shw.serviceId === review._id)
+
+    //             setReviews(showReview);
+    //         })
+    // }, [review._id])
+    // console.log(review)
+
+    const { _id, title, img, price, description } = useLoaderData();
+    const { user } = useContext(AuthContext);
+
+    const [reviews, setReviews] = useState([]);
+    //console.log(serviceId);
+
+    //review add handler
+    const AddReview = (event) => {
+        event.preventDefault();
+        const serviceId = _id;
+        const userImg = user.photoURL;
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const review = event.target.comment.value;
+        const reviewData = { serviceId, userImg, name, email, review };
+
+        fetch("http://localhost:5000/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(reviewData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success("Review Added");
+                    event.target.reset();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    useEffect(() => {
+        fetch("http://localhost:5000/reviews")
+            .then((res) => res.json())
+            .then((data) => {
+                const showReview = data.filter(
+                    (shw) => shw.serviceId === _id
+                );
+                setReviews(showReview);
+            });
+    }, [_id]);
+    console.log(reviews);
+
     return (
         <div className='text-left ml-4'>
-            <h1>Please add a Review</h1>
-            <form /**onSubmit={AddUser} */>
+
+            <div className='my-20'>
+                <h1 className='mb-4 text-2xl font-semibold'>Total Reviews: {reviews.length}</h1>
+                {
+                    reviews.map(review => <tbody key={review._id}>
+
+                        <tr >
+                            <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                        <div className="rounded-full w-12 h-12">
+                                            <img src={review.userImg} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="font-bold">{review.name}</div>
+                                        <div className="text-sm opacity-50">{review.email}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                {review.review}
+                            </td>
+                        </tr>
+                    </tbody>
+                    )
+                }
+            </div>
+
+            <form onSubmit={AddReview} >
 
 
                 <div className="w-full p-8 my-4 md:px-12  mx-auto   rounded-2xl shadow-2xl">
@@ -12,10 +135,10 @@ const Review = () => {
                         <h1 className="font-bold uppercase text-3xl">Leave a Comment</h1>
                     </div>
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                        <input name='name' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input /**onBlur={handleInputBlur} */ name='name' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                             type="text" placeholder="Name*" required />
 
-                        <input /**defaultValue={user?.email} */ readOnly name='email' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        <input defaultValue={user?.email} readOnly name='email' className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                             type="email" placeholder="Email*" required />
 
                     </div>

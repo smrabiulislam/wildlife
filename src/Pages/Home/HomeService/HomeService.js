@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Service from '../Service/Service';
 import ServiceCard from '../Service/ServiceCard';
 
 const HomeService = () => {
 
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/services-home')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -20,7 +19,7 @@ const HomeService = () => {
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    services.slice(0, 3).map(service => <ServiceCard
+                    services.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     ></ServiceCard>)

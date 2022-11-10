@@ -10,7 +10,7 @@ const Service = () => {
     const ref = useRef()
     return (
         <div className=' '>
-            <div className='grid md:grid-cols-4 md:px-20 py-20 gap-5'>
+            <div className=' md:px-20 py-20 gap-5'>
                 <div className="col-span-3 p-10 rounded-lg shadow-2xl border-2 border-green-700 mx-2">
                     <div ref={ref} className=' my-5'>
                         <div className='col-span-1'>
@@ -40,22 +40,6 @@ const Service = () => {
                     </div>
                     <div>
                         <Review></Review>
-                    </div>
-                </div>
-
-                <div>
-                    <div className="p-10 rounded-lg shadow-2xl border-2 border-green-700 mx-2">
-
-                        <div className="">
-                            <h2 className="text-2xl mb-4">{title}</h2>
-                            <hr className='mb-4 ' />
-                            <p className='text-xl text-left my-1'>Price: ${price}</p>
-
-                            <Link to='/checkout' className="card-actions">
-                                <button className="btn btn-primary w-full  my-1 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md">Buy now</button>
-                            </Link>
-
-                        </div>
                     </div>
                 </div>
             </div>

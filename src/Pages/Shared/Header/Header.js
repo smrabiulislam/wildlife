@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import logo from '../../../assets/logo/logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -19,6 +19,7 @@ const Header = () => {
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         <li className='font-semibold'><Link to='/contact'>Contact</Link></li>
+
     </>
     return (
         <div className="navbar bg-base-100 h-20 mb-12">
@@ -41,7 +42,19 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
+
+
             <div className="navbar-end">
+                <NavLink className="mr-2 font-semibold " to='/myreviews'>
+                    {
+                        user?.uid && <button>My Reviews</button>
+                    }
+                </NavLink>
+                <NavLink className="font-semibold " to='/addservice'>
+                    {
+                        user?.uid && <button>Add Service</button>
+                    }
+                </NavLink>
                 {
                     user?.uid ? <Link onClick={userLogOut}
 
@@ -54,12 +67,12 @@ const Header = () => {
                             <Link to='/login'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Login</button></Link>
                             <Link to='/signup'><button className='mx-2 bg-green-700 hover:bg-violet-600 py-2 px-4 text-white rounded-md'>Sign Up</button></Link>
                         </>
-
                 }
             </div>
-            <div className="gap-2">
+            <div className=" gap-2">
                 {user?.uid && (
                     <div>
+
                         {user?.photoURL ? (
                             <img
                                 className="w-12 h-10 text-white rounded-3xl"
@@ -76,6 +89,7 @@ const Header = () => {
                     </div>
                 )}
             </div>
+
         </div>
     );
 };
