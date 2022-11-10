@@ -10,7 +10,6 @@ const ServiceCard = ({ service }) => {
         <PhotoProvider>
             <div className="card my-4 card-compact w-96 bg-base-100 shadow-xl">
                 <figure>
-                    {/* <img src={img} alt="Shoes" /> */}
                     <PhotoView src={img}>
                         <img src={img} alt="" />
                     </PhotoView>
@@ -26,7 +25,6 @@ const ServiceCard = ({ service }) => {
                             <StarIcon className='text-orange-400 h-5'></StarIcon>
                         </div>
                         <p className='text-left my-4'>{description.slice(0, 200)}</p>
-
                     </div>
                     <div className=" ">
                         <div className='flex justify-between'>
