@@ -7,18 +7,20 @@ const Review = () => {
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    // console.log(title)
 
     //review add handler
     const AddReview = (event) => {
         event.preventDefault();
         const serviceId = _id;
+        const serviceTitle = title;
         const userImg = user.photoURL;
         const name = event.target.name.value;
         const email = event.target.email.value;
         const review = event.target.comment.value;
-        const reviewData = { serviceId, userImg, name, email, review };
+        const reviewData = { serviceId, serviceTitle, userImg, name, email, review };
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://wildlife-server-assignment-11.onrender.com/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +41,7 @@ const Review = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:5000/reviews")
+        fetch("https://wildlife-server-assignment-11.onrender.com/reviews")
             .then((res) => res.json())
             .then((data) => {
                 const showReview = data.filter(
@@ -48,7 +50,7 @@ const Review = () => {
                 setReviews(showReview);
             });
     }, [_id]);
-    console.log(reviews);
+    // console.log(reviews);
 
     return (
         <div className='text-left ml-4 '>

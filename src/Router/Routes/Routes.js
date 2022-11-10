@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://wildlife-server-assignment-11.onrender.com/services/${params.id}`),
                 element: <Service></Service>
             },
             {

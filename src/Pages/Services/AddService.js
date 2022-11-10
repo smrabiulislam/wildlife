@@ -13,7 +13,7 @@ const AddService = () => {
         const description = event.target.description.value;
         const serviceData = { service_id, img, title, price, description };
 
-        fetch("http://localhost:5000/services", {
+        fetch("https://wildlife-server-assignment-11.onrender.com/services", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
